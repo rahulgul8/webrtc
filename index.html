@@ -2,9 +2,11 @@
 
 <head>
     <title>WebRTC demo</title>
+    <!--Bootstrap only for styling-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <!--Bootstrap only for styling-->
 </head>
 <style>
     .container {
@@ -32,20 +34,6 @@
         width: 100%;
     }
 </style>
-<script>
-    function httpGetAsync(theUrl, callback) {
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function () {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                callback(xmlHttp.responseText);
-        }
-        xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-        xmlHttp.send(null);
-    }
-    httpGetAsync("http://localhost:7001/fabrickpfm/psd2/movements/backoffice/api/mapping/defaultcategory/1", (responseText) => {
-        console.log(responseText);
-    });
-</script>
 
 <body>
 
@@ -57,16 +45,16 @@
             console to see the output.</h3>
 
         <!--WebRTC related code-->
-
         <button type="button" class="btn btn-primary" onclick='createOffer()'>Create Offer</button>
         <input id="messageInput" type="text" class="form-control" placeholder="message">
         <button type="button" class="btn btn-primary" onclick='sendMessage()'>SEND</button>
+        <script src="client.js"></script>
         <!--WebRTC related code-->
 
     </div>
     <div class="footer"> This application is intentionally made simple to avoid cluttering with non WebRTC related code.
     </div>
-    <script src="client.js"></script>
+
 </body>
 
 </html>
