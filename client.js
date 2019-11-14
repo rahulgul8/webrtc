@@ -1,5 +1,5 @@
 //connecting to our signaling server 
-var conn = new WebSocket('ws://localhost:9090');
+var conn = new WebSocket('ws://localhost:8090/socket');
 
 conn.onopen = function () {
     console.log("Connected to the signaling server");
@@ -35,7 +35,7 @@ function send(message) {
 }
 var peerConnection;
 var dataChannel;
-var input = document.getElementById("message");
+var input = document.getElementById("messageInput");
 function initialize() {
     //using Google public stun server 
     var configuration = null;
@@ -100,6 +100,7 @@ function handleCandidate(candidate) {
 
 function handleAnswer(answer) {
     peerConnection.setRemoteDescription(new RTCSessionDescription(answer));
+    console.log("connection established successfully!!");
 };
 
 function sendMessage() {
